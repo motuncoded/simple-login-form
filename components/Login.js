@@ -1,69 +1,99 @@
-import { View, Text,StyleSheet,TextInput, Pressable } from 'react-native'
+import { View, Text,StyleSheet,TextInput, Pressable, Image } from 'react-native'
 import React from 'react'
 
 export default function Login() {
   return (
-    <View >
-          <View style={styles.container}>
-                
-           
-                <Text style={{
-              fontSize: 20,
-              textAlign: "center",
-          }}>Please Login Your Details
-          </Text>
-          <TextInput
-              style={styles.input}
-              placeholder={"Name"}
-                keyboardType="text"/>
-                 <TextInput
-              style={styles.input}
-              placeholder={"Phone-number"}
-                keyboardType="numeric"
-        />
-         <TextInput
-              style={styles.input}
-                  placeholder={"Email Address"}
-                  keyboardType='email-address'
-     />
-           <Pressable style={styles.button}>
-            <Text style={{color:"#fff"}}>Login</Text>
-           </Pressable>
+    <View style={{backgroundColor:"#000",flex:1}} >
+      <View style={styles.container}>
+      <Image source={require("../assets/logo.png")} style={styles.logo} />
+      </View>
+        <View style={styles.loginContainer}>
+          <Text style={styles.heading}>Login</Text>
+        <View style={styles.inputContainer}>
+          <Text>Email</Text>
+          <TextInput placeholder="motunrayoadeneye@gmail.com" placeholderTextColor={'grey'}/>
+        </View>
+          <View style={styles.inputContainer}>
+          <Text>Password</Text>
+          <TextInput placeholder="*******" placeholderTextColor={'grey'}/>
+        </View>
+        <Pressable style={styles.button}>
+          <Text style={{ color: "#fff", textAlign:"center" }}>Login</Text>
+        </Pressable>
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>Don't have an account?</Text>
+          <Pressable style={styles.signUp}>
+            <Text style={styles.signUp}> Sign up</Text>
+            </Pressable>
+        </View>
+        </View>
+        
         </View>
           
            
 
-    </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-        justifyContent: 'center',
-            marginVertical: 24,
+    flex: .4,
+    backgroundColor: "#000",
+    justifyContent: "center",
+    alignItems: "center"
 
   },
-  text:{
-      padding:40
-    },
-   input: {
-       height: 40,
-       width: 300,
-    marginVertical: 12,
-    borderRadius: 2,
-    borderWidth: 1,
-    padding: 5,
-    fontSize: 16,
-    borderColor: "#0a0a0a",
-    },
-    button: {
-        borderColor: "#0a0a0a",
-        backgroundColor:"#0a0a0a",
-     borderRadius: 2,
-    borderWidth: 2,
-        fontSize: 16,
+  loginContainer: {
+    flex: 1,
+    backgroundColor: "#F5F5F5",
+    borderTopLeftRadius: 67,
 
-       padding:10,
-   }
+
+  },
+  logo: {
+    width: 72,
+    height: 58,
+  },
+  heading: {
+    textAlign: "center",
+    padding: 40,
+    fontSize: 30
+  },
+  inputContainer: {
+    marginHorizontal: 30,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    backgroundColor:"#fafafa",
+borderTopLeftRadius: 6,
+    borderTopRightRadius:1,
+    borderBottomLeftRadius: 6,
+    borderBottomRightRadius: 6,
+    marginVertical: 10,
+  
+  },
+  button:{
+    backgroundColor: "#0a0a0a",
+     marginHorizontal: 30,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    borderTopLeftRadius: 6,
+    borderTopRightRadius:1,
+    borderBottomLeftRadius: 6,
+    borderBottomRightRadius:6,
+
+    marginVertical: 30,
+  },
+ footer: {
+   flexDirection: "row",
+   justifyContent: "center",
+   alignItems:"center",
+   marginVertical:140
+  }, 
+  footerText: {
+
+ },
+  signUp: {
+    backgroundColor:"#F5F5F5"
+   
+ }
 });
