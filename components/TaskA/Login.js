@@ -5,7 +5,7 @@ export default function Login({navigation}) {
   return (
     <View style={{backgroundColor:"#000",flex:1}} >
       <View style={styles.container}>
-      <Image source={require("../assets/logo.png")} style={styles.logo} />
+      <Image source={require("./logo.png")} style={styles.logo} />
       </View>
         <View style={styles.loginContainer}>
           <Text style={styles.heading}>Login</Text>

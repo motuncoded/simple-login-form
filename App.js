@@ -1,26 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
-import { View } from 'react-native';
-import Login from './components/Login';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import SignUp from './components/SignUp';
-const Stack = createNativeStackNavigator();
+import { NavigationContainer } from '@react-navigation/native';
+//task 1
+import Login from "./components/TaskA/Login"
+import LoginB from "./components/TaskB/Login"
+// task 2
+import Home from "./components/TaskB/Home";
+import SignUp from './components/TaskA/SignUp';
+import SignUpB from './components/TaskB/SignUp';
 
-export default function App() {
+
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { MaterialIcons } from '@expo/vector-icons';
+
+
+
+
+
+
+const Stack = createNativeStackNavigator();
+const Tab =  createBottomTabNavigator()
+
+
+function TaskA() {
   return (
- <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
+    <Stack.Navigator screenOptions={{
     headerShown: false
-  }}  >
-        <Stack.Screen
-          name="Login"
-          component={Login}
-      
-          
-         
-        />
-        <Stack.Screen
+   }}>
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen
           name="SignUp"
           component={SignUp}
           options={{
@@ -36,10 +44,60 @@ export default function App() {
           headerTitleStyle: {
             fontWeight: '100',
             fontSize: 30
-          },}}></Stack.Screen>
-      </Stack.Navigator>
-    </NavigationContainer>   
+                },
+              }}></Stack.Screen>
+    </Stack.Navigator>
   );
+}  
+function TaskB() {
+  return (
+    <Stack.Navigator screenOptions={{
+    headerShown: false
+    }}>
+            <Stack.Screen name="Home" component={Home} />
+
+      <Stack.Screen name="Login" component={LoginB} />
+      <Stack.Screen
+          name="SignUp"
+          component={SignUpB}
+         ></Stack.Screen>
+    </Stack.Navigator>
+  );
+}  
+
+export default function App() {
+
+
+  return (
+         <NavigationContainer>
+  
+    <Tab.Navigator screenOptions={{
+    headerShown: false
+   }}>
+        <Tab.Screen name="TaskA"
+          component={TaskA}
+           options={{
+      tabBarLabel: 'TaskA',
+      tabBarIcon: () => (
+        <MaterialIcons name="task" color="black" size={34} />
+      ),
+    }}
+        />
+         <Tab.Screen name="TaskB"
+          component={TaskB}
+           options={{
+      tabBarLabel: 'TaskB',
+      tabBarIcon: () => (
+        <MaterialIcons name="task" color="black" size={34} />
+      ),
+    }}
+        />
+    </Tab.Navigator>
+    </NavigationContainer>
+  
+
+
+);
 }
 
 
