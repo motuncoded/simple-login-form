@@ -12,6 +12,7 @@ import SignUpB from './components/TaskB/SignUp';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons } from '@expo/vector-icons';
+import SignIn from './components/TaskC/SignIn';
 
 
 
@@ -52,18 +53,71 @@ function TaskA() {
 function TaskB() {
   return (
     <Stack.Navigator screenOptions={{
-    headerShown: false
+      headerShown: false
     }}>
-            <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Home" component={Home} />
 
-      <Stack.Screen name="Login" component={LoginB} />
-      <Stack.Screen
+      <Stack.Screen name="Login" component={LoginB} options={{
+        
+        headerShown: true,
+        headerStyle: {
+              backgroundColor: '#212529',
+           
+            },
+                         headerTintColor: '#fafafa',
+
+      }} />
+        <Stack.Screen
           name="SignUp"
           component={SignUpB}
-         ></Stack.Screen>
+          options={{
+        
+           headerShown: true,
+        headerStyle: {
+              backgroundColor: '#212529',
+           
+            },
+                         headerTintColor: '#fafafa',
+
+      }}
+        ></Stack.Screen>
     </Stack.Navigator>
   );
 }  
+
+function TaskC() {
+  return (
+    <Stack.Navigator screenOptions={{
+      headerShown: false
+    }}>
+
+      <Stack.Screen name="SignIn" component={SignIn} options={{
+        
+        headerStyle: {
+              backgroundColor: '#212529',
+           
+            },
+                         headerTintColor: '#fafafa',
+
+      }} />
+        <Stack.Screen
+          name="SignUp"
+          component={SignUp}
+          options={{
+        
+           headerShown: true,
+        headerStyle: {
+              backgroundColor: '#212529',
+           
+            },
+                         headerTintColor: '#fafafa',
+
+      }}
+        ></Stack.Screen>
+    </Stack.Navigator>
+  );
+}  
+
 
 export default function App() {
 
@@ -71,13 +125,17 @@ export default function App() {
   return (
          <NavigationContainer>
   
-    <Tab.Navigator screenOptions={{
-    headerShown: false
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+             tabBarActiveTintColor: 'black',
+                tabBarInactiveTintColor: 'gray',
    }}>
         <Tab.Screen name="TaskA"
           component={TaskA}
            options={{
-      tabBarLabel: 'TaskA',
+             tabBarLabel: 'TaskA',
+        
       tabBarIcon: () => (
         <MaterialIcons name="task" color="black" size={34} />
       ),
@@ -89,7 +147,18 @@ export default function App() {
       tabBarLabel: 'TaskB',
       tabBarIcon: () => (
         <MaterialIcons name="task" color="black" size={34} />
-      ),
+             ),
+      
+    }}
+        />
+         <Tab.Screen name="TaskC"
+          component={TaskC}
+           options={{
+      tabBarLabel: 'TaskC',
+      tabBarIcon: () => (
+        <MaterialIcons name="task" color="black" size={34} />
+             ),
+      
     }}
         />
     </Tab.Navigator>
