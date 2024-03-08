@@ -1,16 +1,21 @@
+
+
 import { View, Text, ImageBackground,StyleSheet,TextInput,Pressable } from 'react-native'
 import React from 'react'
 
 
-const SignIn = ({navigation}) => {
+const SignUp = ({navigation}) => {
   return (
     <View style={{flex:1}} >
       <ImageBackground style={styles.image} resizeMode='cover' blurRadius={10}
  source={require("./leaves.jpg")}>
   
         <View style={styles.container}>
-          <Text style={styles.header}>Hello,</Text>
-          <Text style={styles.heading}>Welcome Back!</Text>
+          <Text style={styles.header}>Sign Up</Text>
+           <View style={styles.inputContainer}>
+              <Text style={styles.label}>Name</Text>
+          <TextInput style={styles.input}/>
+        </View>
  <View style={styles.inputContainer}>
               <Text style={styles.label}>E-mail</Text>
           <TextInput style={styles.input}/>
@@ -25,9 +30,9 @@ const SignIn = ({navigation}) => {
            <View style={styles.footer}>
           <Text style={styles.footerText}>Don't have an account?</Text>
           <Pressable style={styles.signUp}  onPress={() =>
-        navigation.navigate('LogUp')
+        navigation.navigate('SignIn')
       }>
-            <Text style={styles.signUp}> Sign up</Text>
+            <Text style={styles.signUp}> Sign In</Text>
             </Pressable>
         </View>
         </View>
@@ -52,16 +57,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 25, 
      color: "#fafafa",
+         marginBottom:70
+
     
 
   },
-    heading: {
-    textAlign: "center",
-    fontSize: 25, 
-    color:"#fafafa",
-    marginBottom:70
 
-  },
    inputContainer: {
     width: 350,
     paddingVertical:8,
@@ -77,6 +78,7 @@ const styles = StyleSheet.create({
      left: 5,
      color: "#fafafa",
      backgroundColor:'rgba(0, 0, 0, 0.6)',
+     
 
 
    },
@@ -107,4 +109,4 @@ color:"green",
  }
 })
 
-export default SignIn
+export default SignUp

@@ -13,7 +13,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons } from '@expo/vector-icons';
 import SignIn from './components/TaskC/SignIn';
-
+import LogUp from "./components/TaskC/LogUp"
 
 
 
@@ -94,23 +94,22 @@ function TaskC() {
       <Stack.Screen name="SignIn" component={SignIn} options={{
         
         headerStyle: {
-              backgroundColor: '#212529',
+              backgroundColor: 'black',
            
             },
                          headerTintColor: '#fafafa',
 
       }} />
         <Stack.Screen
-          name="SignUp"
-          component={SignUp}
+          name="LogUp"
+          component={LogUp}
           options={{
         
            headerShown: true,
         headerStyle: {
-              backgroundColor: '#212529',
-           
+           backgroundColor: 'black'
             },
-                         headerTintColor: '#fafafa',
+                 headerTintColor: '#fafafa',
 
       }}
         ></Stack.Screen>
